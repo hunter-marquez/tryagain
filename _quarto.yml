@@ -7,11 +7,8 @@ website:
     left:
       - href: index.qmd
         text: Home
-      - about.qmd
       - eda.qmd
-      - eda-db.qmd
       - model.qmd
-      - model-db.qmd
 
 format:
   html:
