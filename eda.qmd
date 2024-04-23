@@ -11,6 +11,9 @@ format:
 library(palmerpenguins)
 library(dplyr)
 library(ggplot2)
+library(tidyverse)
+library(tidymodels)
+library(rpart.plot)
 
 df <- palmerpenguins::penguins
 ```
@@ -36,4 +39,38 @@ df %>%
   ggplot(aes(x = bill_length_mm, y = body_mass_g, color = species)) +
   geom_point() + 
   geom_smooth(method = "lm")
+```
+
+
+## Pengiun Sex Classification using Classification Trees
+```{r}
+penguins <- df %>%
+  drop_na()
+penguins_split <- initial_split(penguins, prop = 0.8, strata = sex)
+penguins_train <- training(penguins_split)
+penguins_test <- testing(penguins_split)
+tree_spec <- decision_tree() %>%   
+  set_engine("rpart")
+class_tree_spec <- tree_spec %>%      
+  set_mode("classification")
+class_tree_wf <- workflow() %>%
+  add_model(class_tree_spec %>% set_args(cost_complexity = tune())) %>%
+  add_formula(sex~ .)
+penguins_folds <- vfold_cv(penguins_train, v = 10, strata = sex)
+param_grid <- grid_regular(cost_complexity(range = c(-5, 5)), levels = 10)
+tune_res <- tune_grid(
+  class_tree_wf, 
+  resamples = penguins_folds, 
+  grid = param_grid, 
+  metrics = metric_set(accuracy)
+)
+collect_metrics(tune_res)
+best_complexity <- select_best(tune_res)
+class_tree_final <- finalize_workflow(class_tree_wf, best_complexity)
+class_tree_final_fit <- fit(class_tree_final, data = penguins_train)
+class_tree_final_fit %>%      
+  extract_fit_engine() %>%      
+  rpart.plot()
+augment(class_tree_final_fit, new_data = penguins_test) %>%      
+  accuracy(truth = sex, estimate = .pred_class)
 ```
