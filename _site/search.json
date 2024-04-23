@@ -47,5 +47,12 @@
     "title": "Model",
     "section": "Get some information",
     "text": "Get some information\n\n\nCode\nprint(f\"R^2 {model.score(X,y)}\")\nprint(f\"Intercept {model.intercept_}\")\nprint(f\"Columns {X.columns}\")\nprint(f\"Coefficients {model.coef_}\")\n\n\nR^2 0.8555368759537614\nIntercept 2169.2697209393973\nColumns Index(['bill_length_mm', 'species_Chinstrap', 'species_Gentoo', 'sex_male'], dtype='object')\nCoefficients [  32.53688677 -298.76553447 1094.86739145  547.36692408]"
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Final Project",
+    "section": "",
+    "text": "This is a Quarto website.\nTo learn more about Quarto websites visit https://quarto.org/docs/websites.\n\n2 + 2\n\n[1] 4\n\n\nEnjoy these pictures of penguins used with my premium subscription of ChatGPT that I’m trying to make worth $20 a month!\n\n\n\n\n\n\n# Load the png package\nlibrary(png)\n\n# Read the .png image file\nimg2 &lt;- png::readPNG(\"penguin2.png\")\n\n# Get the dimensions of the image\nimg_width2 &lt;- dim(img2)[2]  # Width of the image\nimg_height2 &lt;- dim(img2)[1] # Height of the image\n\n# Set the plot size to match the image dimensions\nplot(1, type = \"n\", xlab = \"\", ylab = \"\", xlim = c(0, img_width2), ylim = c(0, img_height2), axes = FALSE)\n\n# Display the image at its actual size\nrasterImage(img2, 0, 0, img_width2, img_height2)"
   }
 ]

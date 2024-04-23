@@ -9,3 +9,42 @@ To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 ```{r}
 2 + 2
 ```
+
+
+Enjoy these pictures of penguins used with my premium subscription of ChatGPT that I'm trying to make worth $20 a month! 
+```{r, echo=FALSE}
+# Load the png package
+library(png)
+
+# Read the .png image file
+img1 <- png::readPNG("penguin1.png")
+
+# Get the dimensions of the image
+img_width1 <- dim(img1)[2]  # Width of the image
+img_height1 <- dim(img1)[1] # Height of the image
+
+# Set the plot size to match the image dimensions
+plot(1, type = "n", xlab = "", ylab = "", xlim = c(0, img_width1), ylim = c(0, img_height1), axes = FALSE)
+
+# Display the image at its actual size
+rasterImage(img1, 0, 0, img_width1, img_height1)
+```
+
+```{r}
+# Load the png package
+library(png)
+
+# Read the .png image file
+img2 <- png::readPNG("penguin2.png")
+
+# Get the dimensions of the image
+img_width2 <- dim(img2)[2]  # Width of the image
+img_height2 <- dim(img2)[1] # Height of the image
+
+# Set the plot size to match the image dimensions
+plot(1, type = "n", xlab = "", ylab = "", xlim = c(0, img_width2), ylim = c(0, img_height2), axes = FALSE)
+
+# Display the image at its actual size
+rasterImage(img2, 0, 0, img_width2, img_height2)
+```
+
