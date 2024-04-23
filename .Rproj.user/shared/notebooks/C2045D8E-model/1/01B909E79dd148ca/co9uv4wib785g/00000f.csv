@@ -1,0 +1,18 @@
+"0","python -m venv <C:\Users\C25Christina.Marquez\OneDrive - afacademy.af.edu\Documents\School\Spring 2024\Math 378\Final Project>"
+"2","  File ""<string>"", line 1
+    python -m venv <C:\Users\C25Christina.Marquez\OneDrive - afacademy.af.edu\Documents\School\Spring 2024\Math 378\Final Project>
+              ^
+SyntaxError: invalid syntax
+"
+"0","source <C:/Users/C25Christina.Marquez/OneDrive - afacademy.af.edu/Documents/School/Spring 2024/Math 378/Final Project>"
+"2","  File ""<string>"", line 1
+    source <C:/Users/C25Christina.Marquez/OneDrive - afacademy.af.edu/Documents/School/Spring 2024/Math 378/Final Project>
+              ^
+SyntaxError: invalid syntax
+"
+"0","/bin/activate"
+"2","  File ""<string>"", line 1
+    /bin/activate
+    ^
+SyntaxError: invalid syntax
+"

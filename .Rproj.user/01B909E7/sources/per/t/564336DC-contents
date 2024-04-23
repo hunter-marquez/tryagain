@@ -1,0 +1,6 @@
+output:
+  quarto::github_pages:
+    repo: <hunter-marquez>/<finalproject>
+    branch: gh-pages
+
+
