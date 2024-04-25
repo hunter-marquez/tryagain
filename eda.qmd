@@ -53,17 +53,17 @@ This code chuck does the following:
 
 \- creates a training and testing split - sets up a classification tree specification
 
-\- set up workflow with formula to predict sex and tune cost complexity
+\- sets up workflow with formula to predict sex and tune cost complexity
 
-\- make 10 folds of training data
+\- makes 10 folds of training data
 
-\- create grid with range of cost complexity values and levels
+\- creates grid with range of cost complexity values and levels
 
-\- fit each model and assess model performance
+\- fits each model and assess model performance
 
-\- use best model performance as final fit - plot decision tree
+\- uses best model performance as final fit - plot decision tree
 
-\- evaluate model performance on test data
+\- evaluates model performance on test data
 
 ```{r, warning=FALSE, message=FALSE}
 # Clean up data set
@@ -83,6 +83,7 @@ class_tree_wf <- workflow() %>%
   add_model(class_tree_spec %>% set_args(cost_complexity = tune())) %>%
   add_formula(sex~ .)
 # create folds
+set.seed(12345)
 penguins_folds <- vfold_cv(penguins_train, v = 10, strata = sex)
 # set up grid
 param_grid <- grid_regular(cost_complexity(range = c(-5, 5)), levels = 10)
