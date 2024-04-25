@@ -45,18 +45,25 @@ df %>%
   geom_smooth(method = "lm")
 ```
 
-## Pengiun Sex Classification using Classification Trees
-This code chuck does the following: 
-- cleans up the penguins dataframe by dropping all of the N/A entries
-- creates a training and testing split
-- sets up a classification tree specification
-- set up workflow with formula to predict sex and tune cost complexity
-- make 10 folds of trainings data
-- create grid with range of cost complexity values and levels
-- fit each model and assess model performance 
-- use best model performance as final fit
-- plot decision tree
-- evaluate model performance on test data
+## Predicting Penguin Sex using Classification Trees
+
+This code chuck does the following:
+
+\- cleans up the penguins dataframe by dropping all of the N/A entries
+
+\- creates a training and testing split - sets up a classification tree specification
+
+\- set up workflow with formula to predict sex and tune cost complexity
+
+\- make 10 folds of training data
+
+\- create grid with range of cost complexity values and levels
+
+\- fit each model and assess model performance
+
+\- use best model performance as final fit - plot decision tree
+
+\- evaluate model performance on test data
 
 ```{r, warning=FALSE, message=FALSE}
 # Clean up data set
