@@ -81,6 +81,6 @@
     "href": "index.html",
     "title": "Final Project",
     "section": "",
-    "text": "This is a Quarto website for Math 378 Final Project.\n\n2 + 2\n\n[1] 4\n\n\nEnjoy these pictures of penguins used with my premium subscription of ChatGPT that I’m trying to make worth $20 a month!\n\nlibrary(grid)\nlibrary(png)\n\n# Read the .png image file\nimg &lt;- readPNG(\"penguin1.png\")\n\n# Create a grid plot with the image\ngrid.newpage()\ngrid.raster(img)\n\n\n\n\n\n\n\n# Read the .png image file\nimg2 &lt;- readPNG(\"penguin2.png\")\n\n# Create a grid plot with the image\ngrid.newpage()\ngrid.raster(img2)"
+    "text": "This is a Quarto website for Math 378 Final Project.\n\n\nCode\n2 + 2\n\n\n[1] 4\n\n\nEnjoy these pictures of penguins used with my premium subscription of ChatGPT that I’m trying to make worth $20 a month!\n\n\nCode\nlibrary(grid)\nlibrary(png)\n\n# Read the .png image file\nimg &lt;- readPNG(\"penguin1.png\")\n\n# Create a grid plot with the image\ngrid.newpage()\ngrid.raster(img)\n\n\n\n\n\n\n\n\n\nCode\n# Read the .png image file\nimg2 &lt;- readPNG(\"penguin2.png\")\n\n# Create a grid plot with the image\ngrid.newpage()\ngrid.raster(img2)"
   }
 ]
