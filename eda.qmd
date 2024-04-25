@@ -7,7 +7,7 @@ format:
 
 ## Penguin Size and Mass by Sex and Species
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 library(palmerpenguins)
 library(dplyr)
 library(dbplyr)
@@ -23,7 +23,7 @@ con <- DBI::dbConnect(
 df <- palmerpenguins::penguins
 ```
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 df %>%
   group_by(species, sex) %>%
   summarise(
@@ -38,7 +38,7 @@ df %>%
 
 ## Penguin Size vs Mass by Species
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 df %>%
   ggplot(aes(x = bill_length_mm, y = body_mass_g, color = species)) +
   geom_point() + 
@@ -46,19 +46,30 @@ df %>%
 ```
 
 ## Pengiun Sex Classification using Classification Trees
+This code chuck does the following: 
+- cleans up the penguins dataframe by dropping all of the N/A entries
+- creates a training and testing split
+- sets up a classification tree specification
+- set up workflow with formula to predict sex and tune cost complexity
+- make 10 folds of trainings data
+- create grid with range of cost complexity values and levels
+- fit each model and assess model performance 
+- use best model performance as final fit
+- plot decision tree
+- evaluate model performance on test data
 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 # Clean up data set
 penguins <- df %>%
   drop_na()
 # separate data into training and testing sets
+set.seed(12345)
 penguins_split <- initial_split(penguins, prop = 0.8, strata = sex)
 penguins_train <- training(penguins_split)
 penguins_test <- testing(penguins_split)
 # set up specification for classification trees
-tree_spec <- decision_tree() %>%   
-  set_engine("rpart")
-class_tree_spec <- tree_spec %>%      
+class_tree_spec <- decision_tree() %>%
+  set_engine("rpart") %>%
   set_mode("classification")
 # create workflow based on sex
 class_tree_wf <- workflow() %>%
@@ -75,7 +86,6 @@ tune_res <- tune_grid(
   grid = param_grid, 
   metrics = metric_set(accuracy)
 )
-collect_metrics(tune_res)
 # select best metric to fit best model
 best_complexity <- select_best(tune_res)
 class_tree_final <- finalize_workflow(class_tree_wf, best_complexity)

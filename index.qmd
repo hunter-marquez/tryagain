@@ -2,9 +2,8 @@
 title: "Final Project"
 ---
 
-This is a Quarto website.
+This is a Quarto website for Math 378 Final Project.
 
-To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
 ```{r}
 2 + 2
@@ -12,7 +11,7 @@ To learn more about Quarto websites visit <https://quarto.org/docs/websites>.
 
 
 Enjoy these pictures of penguins used with my premium subscription of ChatGPT that I'm trying to make worth $20 a month! 
-```{r}
+```{r, warning=FALSE, message=FALSE}
 library(grid)
 library(png)
 
@@ -29,6 +28,4 @@ img2 <- readPNG("penguin2.png")
 # Create a grid plot with the image
 grid.newpage()
 grid.raster(img2)
-
-
 ```
