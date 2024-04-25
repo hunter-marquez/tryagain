@@ -152,7 +152,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#penguin-size-and-mass-by-sex-and-species" id="toc-penguin-size-and-mass-by-sex-and-species" class="nav-link active" data-scroll-target="#penguin-size-and-mass-by-sex-and-species">Penguin Size and Mass by Sex and Species</a></li>
   <li><a href="#penguin-size-vs-mass-by-species" id="toc-penguin-size-vs-mass-by-species" class="nav-link" data-scroll-target="#penguin-size-vs-mass-by-species">Penguin Size vs Mass by Species</a></li>
-  <li><a href="#pengiun-sex-classification-using-classification-trees" id="toc-pengiun-sex-classification-using-classification-trees" class="nav-link" data-scroll-target="#pengiun-sex-classification-using-classification-trees">Pengiun Sex Classification using Classification Trees</a></li>
+  <li><a href="#predicting-penguin-sex-using-classification-trees" id="toc-predicting-penguin-sex-using-classification-trees" class="nav-link" data-scroll-target="#predicting-penguin-sex-using-classification-trees">Predicting Penguin Sex using Classification Trees</a></li>
   </ul>
 </nav>
     </div>
@@ -331,9 +331,17 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 </section>
-<section id="pengiun-sex-classification-using-classification-trees" class="level2">
-<h2 class="anchored" data-anchor-id="pengiun-sex-classification-using-classification-trees">Pengiun Sex Classification using Classification Trees</h2>
-<p>This code chuck does the following: - cleans up the penguins dataframe by dropping all of the N/A entries - creates a training and testing split - sets up a classification tree specification - set up workflow with formula to predict sex and tune cost complexity - make 10 folds of trainings data - create grid with range of cost complexity values and levels - fit each model and assess model performance - use best model performance as final fit - plot decision tree - evaluate model performance on test data</p>
+<section id="predicting-penguin-sex-using-classification-trees" class="level2">
+<h2 class="anchored" data-anchor-id="predicting-penguin-sex-using-classification-trees">Predicting Penguin Sex using Classification Trees</h2>
+<p>This code chuck does the following:</p>
+<p>- cleans up the penguins dataframe by dropping all of the N/A entries</p>
+<p>- creates a training and testing split - sets up a classification tree specification</p>
+<p>- set up workflow with formula to predict sex and tune cost complexity</p>
+<p>- make 10 folds of training data</p>
+<p>- create grid with range of cost complexity values and levels</p>
+<p>- fit each model and assess model performance</p>
+<p>- use best model performance as final fit - plot decision tree</p>
+<p>- evaluate model performance on test data</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
